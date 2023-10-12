@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Ver detalle del cliente</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+		* {
+			font-family: Poppins;
+		}
+
+		th {
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 750px;margin:auto auto;padding: 25px;border: 1px solid black;">
+		<h1>Detalles <span th:text="${cliente.nombre}"></span></h1>
+		<p th:text="${cliente.idCliente}"></p>
+		<p th:text="${cliente.nombre}"></p>
+		<p th:text="${cliente.facturacionAnual}"></p>
+		<p th:text="${cliente.cantidadEmpleados}"></p>
+		<a th:href="@{/}">Volver a la home</a>
+	</div>
+</body>
+</html>

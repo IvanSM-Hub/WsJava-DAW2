@@ -16,7 +16,7 @@ public class HomeController {
 	@GetMapping("/")
 	public String mostrarHome(Model model) {
 		
-		model.addAttribute("mensaje","Hola me llamo Iván");
+//		model.addAttribute("mensaje","Hola me llamo Iván");
 		model.addAttribute("clientes", cdao.findAll());
 		return "home";
 		

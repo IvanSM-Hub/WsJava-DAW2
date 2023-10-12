@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Darse de alta</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+		* {
+			font-family: Poppins;
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 750px;margin:auto auto;padding: 25px;border: 1px solid black;">
+		<h1>Formulario de alta</h1>
+		<form th:action="@{/cliente/alta}" method="post">
+			<label>Nombre</label><br>
+			<input type="text" name="nombre"><br>
+			<label>Facturación Anual</label><br>
+			<input type="text" name="facturacionAnual"><br>
+			<label>Cantidad Empleados</label><br>
+			<input type="text" name="cantidadEmpleados"><br>
+			<input type="submit" value="Enviar">
+		</form>
+	</div>
+</body>
+</html>

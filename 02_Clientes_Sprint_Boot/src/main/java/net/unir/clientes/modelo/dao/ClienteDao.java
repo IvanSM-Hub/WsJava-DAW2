@@ -8,7 +8,7 @@ public interface ClienteDao {
 
 	Cliente findById(int idCliente);
 	List<Cliente> findAll();
-	Cliente insert(Cliente cliente);
+	int insert(Cliente cliente);
 	int delete(int idCliente);
 	
 }//End ClienteDao

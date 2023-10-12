@@ -16,20 +16,27 @@
 	</style>
 </head>
 <body>
-	<div style="width: 500px;margin:auto auto;padding: 25px;border: 1px solid black;">
+	<div style="width: 750px;margin:auto auto;padding: 25px;border: 1px solid black;">
 		<h1>Aplicación de clientes</h1>
 		<h3>Mensajes: <span th:text="${mensaje}"></span></h3>
 		<h3>Listado de clientes</h3>
+		<a th:href="@{/clientes/alta}">Nuevo Cliente</a>
 		<table border="2" width="100%">
 			<tr>
 				<th>Nombre</th>
 				<th>Facturación</th>
 				<th>Empleados</th>
+				<th>Ver detalle</th>
+				<th>Eliminar</th>
+				<th>Editar</th>
 			</tr>
 			<tr th:each="cliente : ${clientes}">
 				<td th:text="${cliente.nombre}"></td>
 				<td th:text="${cliente.facturacionAnual}"></td>
 				<td th:text="${cliente.cantidadEmpleados}"></td>
+				<td><a th:href="@{/clientes/detalle/{id}(id=${cliente.idCliente})}">Detalle</a></td>
+				<td><a th:href="@{/clientes/eliminar/{id}(id=${cliente.idCliente})}">Eliminar</a></td>
+				<td><a th:href="@{/clientes/editar/{id}(id=${cliente.idCliente})}">Editar</a></td>			
 			</tr>
 		</table>
 	</div>

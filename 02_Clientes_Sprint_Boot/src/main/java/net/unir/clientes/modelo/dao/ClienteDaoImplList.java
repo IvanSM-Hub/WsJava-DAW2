@@ -44,13 +44,13 @@ public class ClienteDaoImplList implements ClienteDao{
 	}
 
 	@Override
-	public Cliente insert(Cliente cliente) {
+	public int insert(Cliente cliente) {
 		if(!lista.contains(cliente)) {
 			cliente.setIdCliente(++idAuto);
 			lista.add(cliente);
-			return cliente;
+			return 1;
 		}
-		return null;
+		return 0;
 	}
 
 	@Override
