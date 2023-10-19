@@ -25,6 +25,33 @@ public class ClienteController {
 	@Autowired
 	private ClienteDao cdao;
 	
+	@PostMapping("/editar/{id}")
+	public String procesarEditarCliente(Cliente cliente, @PathVariable("id") int idCliente, RedirectAttributes ratt) {
+		cliente.setIdCliente(idCliente);
+		if(cdao.updateOne(cliente)==1) {
+			ratt.addFlashAttribute("mensaje", "Modificación realizada");
+		}else {
+			ratt.addFlashAttribute("mensaje", "Modificación no realizada");
+		}
+		
+		return "redirect:/";
+		
+	}
+	
+	@GetMapping("/editar/{id}")
+	public String editarCliente(@PathVariable("id") int idCliente, Model model) {
+		Cliente cliente = cdao.findById(idCliente);
+		
+		if(cliente!=null) {
+			model.addAttribute("cliente", cliente);
+			return "formularioEdicion";
+		}else {
+			model.addAttribute("mensaje", "Este cliente no existe");
+			return "forward:/";
+		}
+		
+	}
+	
 	@PostMapping("/alta")
 	public String procesarFormularioAlta(Cliente cliente, RedirectAttributes ratt) {
 		cliente.setFechaAlta(new Date());

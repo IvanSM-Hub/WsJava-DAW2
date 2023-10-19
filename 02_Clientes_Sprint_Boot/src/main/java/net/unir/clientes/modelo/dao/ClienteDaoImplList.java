@@ -1,6 +1,7 @@
 package net.unir.clientes.modelo.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -62,6 +63,19 @@ public class ClienteDaoImplList implements ClienteDao{
 		
 		return lista.remove(cliente) ? 1 : 0;
 		
+	}
+
+	@Override
+	public int updateOne(Cliente cliente) {
+		
+		int pos = lista.indexOf(cliente);
+		
+		if(pos==-1)
+			return 0;
+			
+		lista.set(pos,cliente);
+		
+		return 1;
 	}
 
 }//End ClienteDaoImplList

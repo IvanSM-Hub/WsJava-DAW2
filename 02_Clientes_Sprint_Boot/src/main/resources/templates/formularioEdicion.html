@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Darse de alta</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+		* {
+			font-family: Poppins;
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 750px;margin:auto auto;padding: 25px;border: 1px solid black;">
+		<h1>Formulario de Edición</h1>
+		<form th:action="@{/clientes/editar/{id}(id=${cliente.idCliente})}" th:object="${cliente}" method="post">
+			<!-- Nombre -->
+			<label>Nombre</label><br>
+			<input type="text" name="nombre" th:value="${cliente.nombre}"><br>
+			<!-- Facturación anual -->
+			<label>Facturación Anual</label><br>
+			<input type="text" th:field="*{facturacionAnual}"><br>
+			<!-- Cantidad empleados -->
+			<label>Cantidad Empleados</label><br>
+			<input type="text" th:field="*{cantidadEmpleados}"><br>
+			<!-- Fecha creación de la empresa -->
+			<label>Fecha Creación de la empresa</label><br>
+			<input type="Date" th:field="*{fechaCreacion}"><br>
+			<!-- Botón enviar -->
+			<input type="submit" value="Enviar">
+		</form>
+	</div>
+</body>
+</html>
