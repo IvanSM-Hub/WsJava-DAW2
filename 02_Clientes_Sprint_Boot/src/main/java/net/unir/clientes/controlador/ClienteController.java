@@ -1,12 +1,19 @@
 package net.unir.clientes.controlador;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.unir.clientes.modelo.dao.ClienteDao;
 import net.unir.clientes.modelo.javabean.Cliente;
@@ -19,10 +26,14 @@ public class ClienteController {
 	private ClienteDao cdao;
 	
 	@PostMapping("/alta")
-	public String procesarFormularioAlta(Cliente cliente) {
-			
+	public String procesarFormularioAlta(Cliente cliente, RedirectAttributes ratt) {
+		cliente.setFechaAlta(new Date());
+		if(cdao.insert(cliente)==1)
+			ratt.addFlashAttribute("mensaje", "Alta realizada correctamente");
+		else
+			ratt.addFlashAttribute("mensaje", "Alta NO realizada correctamente");
 		
-		return "falso";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/alta")
@@ -53,6 +64,12 @@ public class ClienteController {
 			model.addAttribute("mensaje","Cliente no se ha podido eliminar");
 		
 		return "forward:/";
+	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat,false));
 	}
 	
 }

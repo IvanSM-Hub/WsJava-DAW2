@@ -10,5 +10,6 @@ public interface ClienteDao {
 	List<Cliente> findAll();
 	int insert(Cliente cliente);
 	int delete(int idCliente);
+	int updateOne(Cliente cliente);
 	
 }//End ClienteDao

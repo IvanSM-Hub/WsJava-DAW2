@@ -26,6 +26,8 @@
 				<th>Nombre</th>
 				<th>Facturación</th>
 				<th>Empleados</th>
+				<th>Fecha de creación</th>
+				<th>Fecha de alta</th>
 				<th>Ver detalle</th>
 				<th>Eliminar</th>
 				<th>Editar</th>
@@ -34,6 +36,8 @@
 				<td th:text="${cliente.nombre}"></td>
 				<td th:text="${cliente.facturacionAnual}"></td>
 				<td th:text="${cliente.cantidadEmpleados}"></td>
+				<td th:text="${#dates.format(cliente.fechaCreacion,'dd - MM - yy')}"></td>
+				<td th:text="${#dates.format(cliente.fechaAlta, 'dd - MM - yy')}"></td>
 				<td><a th:href="@{/clientes/detalle/{id}(id=${cliente.idCliente})}">Detalle</a></td>
 				<td><a th:href="@{/clientes/eliminar/{id}(id=${cliente.idCliente})}">Eliminar</a></td>
 				<td><a th:href="@{/clientes/editar/{id}(id=${cliente.idCliente})}">Editar</a></td>			

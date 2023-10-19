@@ -14,13 +14,20 @@
 <body>
 	<div style="width: 750px;margin:auto auto;padding: 25px;border: 1px solid black;">
 		<h1>Formulario de alta</h1>
-		<form th:action="@{/cliente/alta}" method="post">
+		<form th:action="@{/clientes/alta}" method="post">
+			<!-- Nombre -->
 			<label>Nombre</label><br>
 			<input type="text" name="nombre"><br>
+			<!-- Facturación anual -->
 			<label>Facturación Anual</label><br>
 			<input type="text" name="facturacionAnual"><br>
+			<!-- Cantidad empleados -->
 			<label>Cantidad Empleados</label><br>
 			<input type="text" name="cantidadEmpleados"><br>
+			<!-- Fecha creación de la empresa -->
+			<label>Fecha Creación de la empresa</label><br>
+			<input type="Date" name="fechaCreacion"><br>
+			<!-- Botón enviar -->
 			<input type="submit" value="Enviar">
 		</form>
 	</div>
