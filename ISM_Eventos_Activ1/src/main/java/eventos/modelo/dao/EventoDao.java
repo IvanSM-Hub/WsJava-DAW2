@@ -6,10 +6,12 @@ import eventos.modelo.javabean.Evento;
 
 public interface EventoDao {
 
-	int findById(int idEvento);
+	Evento findById(int idEvento);
 	List<Evento> findAll();
+	List<Evento> findAllActive();
 	int insert(Evento evento);
 	int delete(int idEvento);
-	int updateOne(int idEvento);
+	int updateOne(Evento evento);
+	int updateEstado(int idEvento);
 	
 }

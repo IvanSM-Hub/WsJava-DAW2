@@ -6,7 +6,7 @@ import eventos.modelo.javabean.Tipo;
 
 public interface TipoDao {
 
-	int finById(int idTipo);
+	Tipo findById(int idTipo);
 	List<Tipo> findAll();
 	
 }

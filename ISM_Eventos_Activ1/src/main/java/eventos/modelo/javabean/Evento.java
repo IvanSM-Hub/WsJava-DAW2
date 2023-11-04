@@ -4,15 +4,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(of = "idEvento")
 public class Evento implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
 	private int idEvento;
 	private String nombre;
 	private String descripcion;

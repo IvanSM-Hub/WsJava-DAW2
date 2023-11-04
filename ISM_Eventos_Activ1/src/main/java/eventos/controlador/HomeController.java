@@ -12,10 +12,16 @@ public class HomeController {
 	
 	@Autowired
 	private EventoDao edao;
-
+	
+	/**
+	 * Función para mostrar todos los eventos de la ruta "/" la cual muestra el archivo index.html.
+	 * <br>
+	 * @param Model model
+	 * @return String
+	 */
 	@GetMapping("/")
 	public String mostrarIndex(Model model) {
-		model.addAttribute("eventos", edao.findAll());
+		model.addAttribute("eventos", edao.findAllActive());
 		return("index");
 	}
 	

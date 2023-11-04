@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Darse de alta</title>
+	<link rel="stylesheet" th:href="@{/index.css}">
+</head>
+<body>
+	<div id="fullContainer">
+		<div id="forms">
+			<h1>Editar Evento</h1>
+			<form th:action="@{/eventos/editar/{id}(id=${evento.idEvento})}" th:object="${evento}" method="post">
+				<!-- Nombre -->
+				<label>Nombre</label><br>
+				<input type="text" th:field="*{nombre}"><br>
+				<!-- Descripción -->
+				<label>Descripción</label><br>
+				<textarea form="formEvento" th:field="*{descripcion}" th:value="*{descripcion}"></textarea><br>
+				<!-- Fecha de Inicio -->
+				<label>Fecha de Inicio</label><br>
+				<input type="date" th:field="*{fechaInicio}" th:value="*{fechaInicio}"><br>
+				<!-- Duración -->
+				<label>Duración</label><br>
+				<input type="number" th:field="*{duracion}"><br>
+				<!-- Dirección -->
+				<label>Dirección</label><br>
+				<input type="text" th:field="*{direccion}"><br>
+				<!-- Estado -->
+				<label>Estado</label><br>
+				<input type="radio" th:field="*{estado}" th:checked="${estado == 'activo'}" th:value="activo">Activo<br>
+				<input type="radio" th:field="*{estado}" th:checked="${estado == 'cancelado'}" th:value="cancelado">Cancelado<br>
+				<!-- Destacado -->
+				<label>Destacado</label><br>
+				<input type="radio" th:field="*{destacado}" th:checked="${destacado == 'si'}" th:value="si">Sí<br>
+				<input type="radio" th:field="*{destacado}" th:checked="${destacado == 'no'}" th:value="no">No<br>
+				<!-- Aforo Máximo -->
+				<label>Aforo Máximo</label><br>
+				<input type="number" th:field="*{aforoMax}"><br>
+				<!-- minimoAsis -->
+				<label>Mínimo Asistencia</label><br>
+				<input type="number" th:field="*{minimoAsis}"><br>
+				<!-- Precio -->
+				<label>Precio</label><br>
+				<input type="number" step="0.01" th:field="*{precio}"><br>
+				<!-- TipoNombre -->
+				<label>Tipo de evento</label><br>
+				<select th:field="*{tipo.idTipo}">
+					<option th:each="tipo : ${tipos}" th:value="${tipo.idTipo}" th:text="${tipo.nombre}"></option>
+				</select><br>
+				<!-- Botón enviar -->
+				<input type="submit" class="mt-15" id="enviar" value="Enviar">
+			</form>
+			<div class="mt-15">
+				<a id="volver" th:href="@{/}"><- volver</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

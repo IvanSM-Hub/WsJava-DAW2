@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Ver detalle del Evento</title>
+	<link rel="stylesheet" th:href="@{/index.css}">
+</head>
+<body>
+	<div id="fullContainer">
+		<div id="forms">
+			<h1>Detalles <span th:text="${evento.nombre}"></span></h1>
+			<p class="mt-15" th:text="${evento.idEvento}"></p>
+			<p class="mt-15" th:text="${evento.descripcion}"></p>
+			<p class="mt-15" th:text="${evento.fechaInicio}"></p>
+			<p class="mt-15" th:text="${evento.duracion}"></p>
+			<p class="mt-15" th:text="${evento.estado}"></p>
+			<p class="mt-15" th:text="${evento.destacado}"></p>
+			<p class="mt-15" th:text="${evento.aforoMax}"></p>
+			<p class="mt-15" th:text="${evento.minimoAsis}"></p>
+			<p class="mt-15" th:text="${evento.precio}"></p>
+			<p class="mt-15" th:text="${evento.Tipo.nombre}"></p>
+			<p class="mt-15" th:text="${evento.Tipo.descripcion}"></p>
+			<div class="mt-15">
+				<a id="volver" th:href="@{/}"><- volver</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

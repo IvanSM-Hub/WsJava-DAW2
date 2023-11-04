@@ -11,8 +11,8 @@
 	<groupId>eventos</groupId>
 	<artifactId>TED_Eventos_Activ1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>TED_Eventos_Activ1</name>
-	<description>Aplicación para clientes unir</description>
+	<name>ISM_Eventos_Activ1</name>
+	<description>Aplicación para gestión de eventos</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

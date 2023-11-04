@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Eventos</title>
+	<link rel="stylesheet" th:href="@{/index.css}">
+</head>
+
+<body>
+	<div id="fullContainer">
+		<div id="container">
+			<h1>Listado de eventos activos</h1>
+			<h3  class="mt-15">Mensajes: <span th:text="${mensaje}"></span></h3>
+			<div>
+				<div id="nuevoEvento" class="mt-15">
+					<a th:href="@{/eventos/alta}">Nuevo Evento</a>
+				</div>
+			</div>
+			<table width="100%">
+				<tr id="cabecera">
+					<th>ID</th>
+					<th>Nombre</th>
+					<th >Precio</th>
+					<th colspan="4" >opciones</th>
+				</tr>
+				<tr th:each="evento : ${eventos}">
+					<td th:text="${evento.idEvento}"></td>
+					<td th:text="${evento.nombre}"></td>
+					<td th:text="${evento.precio}"></td>
+					<td><a class="botonPrincipal" th:href="@{/eventos/detalle/{id}(id=${evento.idEvento})}">Detalle</a></td>
+					<td><a class="botonPrincipal" th:href="@{/eventos/editar/{id}(id=${evento.idEvento})}">Editar</a></td>
+					<td><a class="botonPrincipalAmbar" th:href="@{/eventos/cancelar/{id}(id=${evento.idEvento})}">Cancelar</a></td>
+					<td><a class="botonPrincipalRojo" th:href="@{/eventos/eliminar/{id}(id=${evento.idEvento})}">Eliminar</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
