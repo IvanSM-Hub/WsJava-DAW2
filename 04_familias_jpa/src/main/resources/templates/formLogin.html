@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Darse de alta</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+		* {
+			font-family: Poppins;
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 750px;margin:auto auto;padding: 25px;border: 1px solid black;">
+		<h1>Inicio de sesión</h1>
+		<h4 th:text="${mensaje}"></h4>
+		<form th:action="@{/login}" method="post">
+			<!-- Usuario -->
+			<label>Nombre</label><br>
+			<input type="text" name="username"><br>
+			<!-- Contraseña -->
+			<label>Contraseña</label><br>
+			<input type="password" name="password"><br>
+			<!-- Botón enviar -->
+			<input type="submit" value="Enviar">
+		</form>
+	</div>
+</body>
+</html>

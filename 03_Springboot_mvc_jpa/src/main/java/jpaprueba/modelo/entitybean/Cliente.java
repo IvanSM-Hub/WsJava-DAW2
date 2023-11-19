@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="clientes")
-public class cliente {
+public class Cliente {
 	
 	@Id
 	@Column(name="id_cliente")

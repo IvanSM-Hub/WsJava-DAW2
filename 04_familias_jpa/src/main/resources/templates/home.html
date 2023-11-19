@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Bienvenido a la home</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+		* {
+			font-family: Poppins;
+		}
+
+		th {
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 750px;margin:auto auto;padding: 25px;border: 1px solid black;">
+		
+		<h1>Aplicación de Familias</h1>
+		
+		<h3>Mensajes: <span th:text="${mensaje}"></span></h3>
+		<h3>Usuario: <span th:text="${session.usuario == null ? 'Invitado' : session.usuario.nombre}"></span></h3>
+		
+		<a th:href="@{/login}">Iniciar Sesión</a>
+		<a th:href="@{/logout}">Cerrar Sesión</a>
+		<a th:href="@{/registro}">Registrar</a>
+		
+	</div>
+</body>
+</html>
