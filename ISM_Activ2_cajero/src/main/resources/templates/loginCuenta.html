@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF8">
+	<title>Identificar Cuenta</title>
+	<link rel="stylesheet">
+</head>
+
+<body>
+
+	<h2>Identificar Cuenta</h2>
+
+	<div>
+		<form th:action="@{/login}" method="post">
+			<p><label>Introduce el número de cuenta:</label></p>
+			<p><input type="text" name="idCuenta"></p>
+			<button>Entrar</button>
+			<span th:text="${mensaje}" style="color: red;"></span><br>
+		</form>
+	</div>
+
+</body>
+
+</html>
