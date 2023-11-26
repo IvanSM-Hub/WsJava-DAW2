@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF8">
+	<title>Identificar Cuenta</title>
+	<link rel="stylesheet" th:href="@{/index.css}">
+</head>
+
+<body>
+	<div class="container">
+
+		<h2 class="pb15">Ingresar</h2>
+
+		<div>
+			<form th:action="@{/transferencia}" method="post">
+				<p><label>Cantidad a Transferir:</label></p>
+				<p class="pb15"><input type="number" name="cantidad"></p>
+				<p><label>Cuenta bancaria destino:</label></p>
+				<p class="pb15"><input type="number" name="idDestino"></p>
+				<button>Entrar</button>
+				<p class="pt15"><span th:text="${mensaje}" style="color: red;"></span></p>
+			</form>
+		</div>
+		
+	</div>
+</body>
+
+</html>

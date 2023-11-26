@@ -4,25 +4,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Bienvenido a la home</title>
-	<link rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/index.css}">
 </head>
 
 <body>
-	<div>
-		<div>
-			<a th:href="@{/ingresar}">Iniciar Sesión</a>
+	<div class="containerHome">
+		<div class="pb15">
+			<a th:href="@{/ingresar}">Ingresar</a>
+		</div>
+		<div class="pb15">
+			<a th:href="@{/extraer}">Extraer</a>
+		</div>
+		<div class="pb15">
+			<a th:href="@{/verMovimientos}">Ver movimientos</a>
+		</div>
+		<div class="pb15">
+			<a th:href="@{/transferencia}">Transferencia</a>
 		</div>
 		<div>
-			<a th:href="@{/extraer}">Cerrar Sesión</a>
-		</div>
-		<div>
-			<a th:href="@{/verMovimientos}">Registrar</a>
-		</div>
-		<div>
-			<a th:href="@{/transferencia}">Registrar</a>
-		</div>
-		<div>
-			<a th:href="@{/logout}">Registrar</a>
+			<a th:href="@{/logout}">Cerrar sesión</a>
 		</div>
 	</div>
 </body>

@@ -25,7 +25,7 @@ public class Usuario {
 	private String nombre;
 	private String apellidos;
 	@Column(name="created_at")
-	@Temporal(TemporalType.TIME)
+	@Temporal(TemporalType.DATE)
 	private Date createdAt;
 	private int enabled;
 	

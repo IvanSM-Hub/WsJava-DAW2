@@ -10,14 +10,13 @@
 <body>
 	<div class="container">
 
-		<h2 class="pb15">Identificar Cuenta</h2>
+		<h2 class="pb15">Ingresar</h2>
 
 		<div>
-			<form th:action="@{/login}" method="post">
-				<p><label>Introduce el número de cuenta:</label></p>
-				<p class="pb15"><input type="text" name="idCuenta"></p>
+			<form th:action="@{/ingresar}" method="post">
+				<p><label>Cantidad a Ingresar:</label></p>
+				<p class="pb15"><input type="number" name="cantidad"></p>
 				<button>Entrar</button>
-				<p><span class="pt15" th:text="${mensaje}" style="color: red;"></span></p>
 			</form>
 		</div>
 		

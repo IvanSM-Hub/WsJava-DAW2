@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name="movimientos")
-public class Moviemiento {
+public class Movimiento {
 	
 	@Id
 	@Column(name="id_movimiento")
@@ -32,12 +32,11 @@ public class Moviemiento {
 	@JoinColumn(name="id_cuenta")
 	private	Cuenta cuenta;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
 	
 	private double cantidad;
 	
 	private String operacion;
 	
-
 }

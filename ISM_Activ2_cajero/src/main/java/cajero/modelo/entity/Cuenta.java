@@ -26,5 +26,30 @@ public class Cuenta {
 	
 	@Column(name="tipo_cuenta")
 	private String tipoCuenta;
+	
+	/**
+	 * Al invocar este método sumamos al saldo del objeto la cantidad pasada.<br>
+	 * @param cantidad
+	 * @return boolean
+	 */
+	public boolean ingresar(double cantidad) {
+		saldo+=cantidad;
+		return true;
+	}
+	
+	/**
+	 * Al invocar este método comprobamos si la cantidad a restar del saldo es menor, ya que esto nos impide que el saldo se quede en negativo, devolviendo un false.<br>
+	 * Si la cantidad es inferior al saldo restará las dos cantidades.<br>
+	 * @param cantidad
+	 * @return boolean
+	 */	
+	public boolean extraer(double cantidad) {
+		if (cantidad > saldo) {
+			return false;
+		}else {
+			saldo-=cantidad;
+			return true;
+		}
+	}
 
 }//End Cuenta
