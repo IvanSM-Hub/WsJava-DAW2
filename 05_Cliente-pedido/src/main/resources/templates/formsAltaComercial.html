@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Dar evento de alta</title>
+	<link rel="stylesheet" th:href="@{/index.css}">
+</head>
+<body>
+	<div id="fullContainer">
+		<div id="forms">
+			<h1>Formulario de alta</h1>
+			<form th:action="@{/altaComercial}" th:object="${comercial}" id="formAltaComercial" method="post">
+				<!-- Nombre -->
+				<label>Nombre</label><br>
+				<input type="text" th:field="*{nombre}"><br>
+				<!-- Descripción -->
+				<label>Primer apellido</label><br>
+				<input type="text" th:field="*{apellido1}"><br>
+				<!-- Fecha de Inicio -->
+				<label>Segundo apellido</label><br>
+				<input type="text" th:field="*{apellido2}"><br>
+				<!-- Duración -->
+				<label>comision</label><br>
+				<input type="number" step="any" th:field="*{comision}"><br>
+				<!-- Botón enviar -->
+				<input type="submit" id="enviar" value="Enviar">
+			</form>
+			<div>
+				<a id="volver" th:href="@{/}">volver</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

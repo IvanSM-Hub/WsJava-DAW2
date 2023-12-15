@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Gestión Comerciales</title>
+</head>
+
+<body>
+	<div>
+		<div>
+			<a>Clientes</a>
+		</div>
+		<div>
+			<a>Pedidos</a>
+		</div>
+	</div>
+	
+	<div>
+		<div>
+			<span>Listado de Comerciales</span>
+		</div>
+		<div>
+			<a th:href="@{/altaComercial}">Nuevo Comercial</a>
+		</div>
+		<div>
+			<table border="1px">
+				<thead>
+					<th>Nombre</th>
+					<th>Apellido 1</th>
+					<th>Apellido 2</th>
+					<th>Ver Detalle</th>
+					<th>Dar de baja</th>
+				</thead>
+				<tbody>
+					<tr th:each="comercial:${comerciales}">
+						<td th:text="${comercial.nombre}"></td>
+						<td th:text="${comercial.apellido1}"></td>
+						<td th:text="${comercial.apellido2}"></td>
+						<td><a th:href="@{/detalles/{idComercial}(idComercial=${comercial.idComercial})}">Detalle</a></td>
+						<td><a th:href="@{/eliminarComercial/{idComercial}(idComercial=${comercial.idComercial})}">Dar baja</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

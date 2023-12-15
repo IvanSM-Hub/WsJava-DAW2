@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Gestión Comerciales</title>
+</head>
+
+<body>
+	<div>
+		<h3><span th:text="${comercial.nombre}"></span> <span th:text="${comercial.apellido1}"></span> <span
+				th:text="${comercial.apellido2}"></span></h3>
+	</div>
+	<div>
+		<table>
+			<thead>
+				<th>ID</th>
+				<th>fecha</th>
+				<th>Total</th>
+				<th>Cliente</th>
+			</thead>
+			<tbody>
+				<tr th:each="pedido : ${pedidos}">
+					<td th:text="${pedido.idPedido}"></td>
+					<td th:text="${pedido.fecha}"></td>
+					<td th:text="${pedido.total}"></td>
+					<td><a th:href="@{/detalleCliente/{idCliente}(idCleinte=${pedido.cliente.idCliente})}" th:text="${pedido.cliente.nombre}"></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<a id="volver" th:href="@{/}">volver</a>
+	</div>
+</body>
+
+</html>
