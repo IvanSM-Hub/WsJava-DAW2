@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ver detalle del Evento</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<header th:replace="~{fragments/navPrincipal :: navPrincipal}" />
+	<div class="container mt-5">
+		<h2 class="text-center pb-2 border-bottom border-primary">Detalle del evento Seleccionado</h2>
+		<div class="d-flex mt-5">
+			<div class="col-6">
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Evento: </span><span th:text="${evento.nombre}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Descripción: </span><span th:text="${evento.descripcion}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Dirección: </span><span th:text="${evento.direccion}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Fecha de inicio: </span><span th:text="${evento.fechaInicio}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Duración: </span><span th:text="${evento.duracion}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Aforo máximo: </span><span th:text="${evento.aforoMaximo}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Aforo mínimo: </span><span th:text="${evento.minimoAsistencia}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Precio entrada: </span><span th:text="${evento.precio}"></span>€</p>
+			</div>
+			<div class="col-6">
+				<p class="list-group-item">
+					<span class="font-weight-bold text-primary">Entradas disponibles: </span><span th:text="${quedan}"></span>
+				</p>
+			</div>
+		</div>
+		<div class="mt-5">
+			<a class="btn btn-primary" th:href="@{/}">Volver</a>
+		</div>
+	</div>
+</body>
+
+</html>
