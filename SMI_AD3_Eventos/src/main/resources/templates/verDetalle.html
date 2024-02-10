@@ -14,19 +14,42 @@
 		<h2 class="text-center pb-2 border-bottom border-primary">Detalle del evento Seleccionado</h2>
 		<div class="d-flex mt-5">
 			<div class="col-6">
-				<p class="list-group-item"><span class="font-weight-bold text-primary">Evento: </span><span th:text="${evento.nombre}"></span></p>
-				<p class="list-group-item"><span class="font-weight-bold text-primary">Descripción: </span><span th:text="${evento.descripcion}"></span></p>
-				<p class="list-group-item"><span class="font-weight-bold text-primary">Dirección: </span><span th:text="${evento.direccion}"></span></p>
-				<p class="list-group-item"><span class="font-weight-bold text-primary">Fecha de inicio: </span><span th:text="${evento.fechaInicio}"></span></p>
-				<p class="list-group-item"><span class="font-weight-bold text-primary">Duración: </span><span th:text="${evento.duracion}"></span></p>
-				<p class="list-group-item"><span class="font-weight-bold text-primary">Aforo máximo: </span><span th:text="${evento.aforoMaximo}"></span></p>
-				<p class="list-group-item"><span class="font-weight-bold text-primary">Aforo mínimo: </span><span th:text="${evento.minimoAsistencia}"></span></p>
-				<p class="list-group-item"><span class="font-weight-bold text-primary">Precio entrada: </span><span th:text="${evento.precio}"></span>€</p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Evento: </span><span
+						th:text="${evento.nombre}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Descripción: </span><span
+						th:text="${evento.descripcion}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Dirección: </span><span
+						th:text="${evento.direccion}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Fecha de inicio: </span><span
+						th:text="${evento.fechaInicio}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Duración: </span><span
+						th:text="${evento.duracion}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Aforo máximo: </span><span
+						th:text="${evento.aforoMaximo}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Aforo mínimo: </span><span
+						th:text="${evento.minimoAsistencia}"></span></p>
+				<p class="list-group-item"><span class="font-weight-bold text-primary">Precio entrada: </span><span
+						th:text="${evento.precio}"></span>€</p>
 			</div>
 			<div class="col-6">
 				<p class="list-group-item">
-					<span class="font-weight-bold text-primary">Entradas disponibles: </span><span th:text="${quedan}"></span>
+					<span class="font-weight-bold text-primary">Entradas disponibles: </span><span
+						th:text="${quedan}"></span>
 				</p>
+				<form
+					style="padding: .75rem 1.25rem;"
+					class="form-control"
+					th:action="@{/eventos/reservar/{idEvento}(idEvento=${evento.idEvento})}" method="post">
+					
+					<p class="font-weight-bold text-primary">Realizar reserva:</p>
+					<input class="form-control" type="number" name="cantidad"></input>
+					<input type="submit" class="mt-2 btn btn-primary" value="Realizar reserva"></input>
+					
+				</form>
+				<div>
+					<span class="text-success" th:text="${mensajeOk}"></span>
+					<span class="text-danger" th:text="${mensajeError}"></span>
+				</div>
 			</div>
 		</div>
 		<div class="mt-5">

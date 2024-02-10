@@ -51,11 +51,11 @@ public class DataUserConfiguration{
 			// Todas las demás URLs de la Aplicación requieren autenticación
 			// Asignar permisos a URLs por ROLES
 			.requestMatchers("/eventos/**").hasAnyAuthority("ROLE_CLIENTE")
-			.requestMatchers("/reservas/**").hasAnyAuthority("ROLE_CLIENTE")
+			.requestMatchers("/eventos/reservar/**","/eventos/mis-eventos/**").hasAnyAuthority("ROLE_CLIENTE")
 			
 			.anyRequest().authenticated())
 		// El formulario de Login no requiere autenticacion
-		.formLogin(form -> form.permitAll().defaultSuccessUrl("/", true));
+		.formLogin(form -> form.permitAll().defaultSuccessUrl("/", true).loginPage("/login"));
 		return http.build();
 	}
 	

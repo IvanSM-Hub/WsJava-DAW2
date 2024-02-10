@@ -2,7 +2,6 @@ package eventos.modelo.entitys;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
-import java.math.BigDecimal;
 
 
 /**
@@ -25,7 +24,7 @@ public class Reserva implements Serializable {
 	private String observaciones;
 
 	@Column(name="PRECIO_VENTA")
-	private BigDecimal precioVenta;
+	private double precioVenta;
 
 	//uni-directional many-to-one association to Usuario
 	@ManyToOne
@@ -64,11 +63,11 @@ public class Reserva implements Serializable {
 		this.observaciones = observaciones;
 	}
 
-	public BigDecimal getPrecioVenta() {
+	public double getPrecioVenta() {
 		return this.precioVenta;
 	}
 
-	public void setPrecioVenta(BigDecimal precioVenta) {
+	public void setPrecioVenta(double precioVenta) {
 		this.precioVenta = precioVenta;
 	}
 

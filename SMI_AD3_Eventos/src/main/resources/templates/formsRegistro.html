@@ -2,10 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="UTF-8">
-<title>Registro de Usuario</title>
+	<meta charset="ISO-8859-1">
+	<title>Eventos</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+
 <body>
+	
+	<header th:replace="~{fragments/navPrincipal :: navPrincipal}" />
+	<!--
 	<h3>Registrate para formar parte de la comunidad</h3>
 	<h1 th:text="${mensaje}"></h1>
 	<form th:action="@{/registrar}" method="post" th:object="${usuario}">
@@ -16,5 +21,34 @@
 		<input type="text" th:field="*{direccion}" placeholder="Direccion"> 
 		<input 	type="submit" value="Registrar">
 	</form>
+	-->
+	<div class="container mt-5" style="width: 350px;">
+		<form name="formLogin" th:action="@{/registrar}" th:object="${usuario}" method="post">
+			<fieldset class="form-group mt-100">
+				<legend class="text-primary text-center">¡Registrate!</legend>
+				<p>
+					<input class="form-control" type="text" th:field="*{username}" placeholder="Username">
+				</p>
+				<p>
+					<input class="form-control" type="text" th:field="*{password}" placeholder="Contraseña">
+				</p>
+				<p>
+					<input class="form-control" type="text" th:field="*{nombre}" placeholder="Nombre">
+				</p>
+				<p>
+					<input class="form-control" type="text" th:field="*{apellidos}" placeholder="Apellidos">
+				</p>
+				<p>
+					<input class="form-control" type="text" th:field="*{direccion}" placeholder="Direccion">
+				</p>
+				<div class="form-group row ml-0 mr-0">
+						<input type="submit" class="btn btn-primary btn-sm w-100" value="Registrar">
+				</div>
+				<div class="form-group row mt-2 ml-0 mr-0">
+					<a class="btn btn-secondary btn-sm w-100" th:href="@{/}">Volver Home</a>
+				</div>
+			</fieldset>
+		</form>
+	</div>
 </body>
 </html>

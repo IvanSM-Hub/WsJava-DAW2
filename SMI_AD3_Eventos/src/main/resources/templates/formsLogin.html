@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Eventos</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	
+	<header th:replace="~{fragments/navPrincipal :: navPrincipal}" />
+	
+	<div class="container mt-5" style="width: 350px;">
+		<form name="formLogin" th:action="@{/login}" method="post">
+			<fieldset class="form-group mt-100">
+				<legend class="text-primary text-center">¡Inicia sesión!</legend>
+				<div th:if="${param.error}" class="alert alert-error">
+					Invalid username and password.
+				</div>
+				<div th:if="${param.logout}" class="alert alert-success">
+					Has cerrado sesión correctamente.
+				</div>
+				<div class="form-group">
+					<label class="text-primary" for="username">Usuario</label>
+					<div class="">
+						<input class="form-control " type="text" id="username" name="username" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="text-primary" for="password">Contraseña</label>
+					<div class="">
+						<input class="form-control" type="password" id="password" name="password" />
+					</div>
+				</div>
+				<div class="form-group row ml-0 mr-0">
+					<button type="submit" class="btn btn-success btn-sm w-100">Login</button>
+				</div>
+				<div class="form-group row ml-0 mr-0">
+					<a sec:authorize="!isAuthenticated()" class="btn btn-primary btn-sm  w-100"
+						th:href="@{/register}">Registrarse</a>
+				</div>
+				<div class="form-group row mt-2 ml-0 mr-0">
+					<a class="btn btn-secondary btn-sm w-100" th:href="@{/}">Volver Home</a>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+</body>
+</html>

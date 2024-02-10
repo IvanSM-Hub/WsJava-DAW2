@@ -20,11 +20,11 @@
 			<th>Fecha Inicio</th>
 			<th>Opciones</th>
 
-			<tr th:each="eventoActivoDestacado : ${eventosActivosDestacados}">
-				<td th:text="${eventoActivoDestacado.nombre}"></td>
-				<td th:text="${eventoActivoDestacado.aforoMaximo}"></td>
-				<td th:text="${eventoActivoDestacado.fechaInicio}"></td>
-				<td><a th:href="@{/eventos/detalle/{id}(id=${eventoActivoDestacado.idEvento})}" class="btn btn-success btn-sm">Ver detalle</a>
+			<tr th:each="eventoDestacado : ${eventosDestacados}">
+				<td th:text="${eventoDestacado.nombre}"></td>
+				<td th:text="${eventoDestacado.aforoMaximo}"></td>
+				<td th:text="${eventoDestacado.fechaInicio}"></td>
+				<td><a th:href="@{/eventos/detalle/{id}(id=${eventoDestacado.idEvento})}" class="btn btn-success btn-sm">Ver detalle</a>
 				</td>
 			</tr>
 			

@@ -30,7 +30,7 @@
 					<li class="nav-item">
 						<form method="get" name="typeForm">
 							<select name="tipo" class="nav-link" th:onchange="typeForm.submit()">
-								<option class="nav-link" th:text="Todos"value="" th:selected="${param.tipo == NaN}">
+								<option class="nav-link" th:text="Todos" value="" th:selected="${param.tipo == NaN}">
 								</option>
 								<option class="nav-link" th:each="tipo : ${session.tipos}" th:text="${tipo.nombre}" th:value="${tipo.idTipo}" th:selected="${#strings.equals(param.tipo,#strings.toString(tipo.idTipo))}">
 								</option>
@@ -39,17 +39,17 @@
 					</li>
 					<li sec:authorize="hasAnyRole('ROLE_GESTOR','ROLE_ADMINISTRADOR','ROLE_CLIENTE')"
 						class="nav-item active">
-						<a class="nav-link" th:href="@{/reservas/misReservas}">Mis Reservas</a>
+						<a class="nav-link" th:href="@{/eventos/mis-reservas}">Mis Reservas</a>
 					</li>
 				</ul>
 			</div>
 			
-			<spam class="text-light" sec:authorize="!isAuthenticated()">Invitado</spam>
-			<spam class="text-light" sec:authorize="isAuthenticated()" th:text="${session.usuario}"></spam>
+			<spam sec:authorize="!isAuthenticated()">Invitado</spam>
+			<spam sec:authorize="isAuthenticated()" th:text="${session.usuario}"></spam>
 			
 			<ul class="nav justify-content-end">
 				<li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" th:href="@{/login}">Iniciar Sesion</a></li>
-				<li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" th:href="@{/register}">Registrarse</a></li>
+				<li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" th:href="@{/registrar}">Registrarse</a></li>
 				<li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" th:href="@{/logout}">Cerrar Sesion</a></li>
 			</ul>
 			

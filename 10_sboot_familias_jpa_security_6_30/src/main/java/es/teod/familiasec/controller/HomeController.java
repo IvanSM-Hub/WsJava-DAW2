@@ -1,6 +1,5 @@
 package es.teod.familiasec.controller;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,8 +21,6 @@ import es.teod.familiasec.modelo.dao.IntProductoDao;
 import es.teod.familiasec.modelo.dao.PerfileDao;
 import es.teod.familiasec.modelo.dao.UsuarioDao;
 import jakarta.servlet.http.HttpSession;
-
-
 
 @Controller
 public class HomeController {
